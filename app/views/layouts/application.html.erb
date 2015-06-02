@@ -2,13 +2,30 @@
 <html>
 <head>
   <title>ApartmentFunder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container"> 
+    <div id="header" class="row header-row">
 
-<%= yield %>
+    <ul class="nav nav-tabs">
+      <li><a href='#'>Home</a></li>
+      <li><a href='#'>About</a></li>
+    </ul>
 
+    <div class="flash">
+      <% if flash[:notice] %>
+        <div class="alert alert-success"><%= notice %></div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-danger"><%= notice %></div>
+      <% end %>
+    </div>
+
+        
+    <%= yield %>
+  </div>
 </body>
 </html>
