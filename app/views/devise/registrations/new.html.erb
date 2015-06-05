@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-2"></div>
+    <div class="col-md-4"><h2>Social Media Login</h2>
+      <ul class="socialLogins">
+        <li class="facebook btn-social"><%= link_to 'Facebook Login', '#' %></li>
+        <li class="twitter btn-social"><%= link_to 'Twitter Login', '#' %></li>
+        <li class="linkedin btn-social"><%= link_to 'LinkedIn Login', '#' %></li>
+        <li class="googlePlus btn-social"><%= link_to 'Google+ Login', '#' %></li> 
+      </ul>
+
+    </div>
+  <div class="col-md-4">
+  <h2>Email Login</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, autofocus: true, required: true, class: 'form-control', placeholder: "Enter name" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Enter Password" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Enter Password" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Re-Enter Password"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Sign up", class: 'btn btn-success' %>
+  </div>
+  <div class="form-group">
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %> 
+  </div>
+</div>

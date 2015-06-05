@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+
   get 'welcome/index'
 
+  devise_for :users
+    resources :users, only: [:update]
+    
   get 'welcome/about'
 
   get 'welcome/legal'
+
+
+  authenticated :user do
+    root to: 'welcome#about', as: :authenticated_root
+  end
 
   root to: 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
