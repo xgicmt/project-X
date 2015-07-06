@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   get 'welcome/legal'
 
-
+  resources :properties
+  
   authenticated :user do
     root to: 'welcome#about', as: :authenticated_root
   end

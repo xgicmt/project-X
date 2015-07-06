@@ -11,7 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605045659) do
+ActiveRecord::Schema.define(version: 20150706152553) do
+
+  create_table "leadership_team_members", force: :cascade do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.text     "synopsis"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "purchase_price"
+    t.integer  "min_investment"
+    t.text     "overview"
+    t.integer  "targeted_irr"
+    t.integer  "targeted_hold_period"
+    t.integer  "targeted_yield"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "address_street"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zipcode"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "logo"
+    t.string   "name"
+    t.text     "synopsis"
+    t.string   "address_street"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zipcode"
+    t.string   "phone_number"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

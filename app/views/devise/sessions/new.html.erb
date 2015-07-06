@@ -1,25 +1,26 @@
   <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-4"><h2>Social Media Login</h2>
+    <div class="col-md-4">
+        <h4 class="signIn">Login With Social Media</h4>
       <ul class="socialLogins">
-        <li class="facebook btn-social"><%= link_to 'Facebook Login', '#' %></li>
-        <li class="twitter btn-social"><%= link_to 'Twitter Login', '#' %></li>
-        <li class="linkedin btn-social"><%= link_to 'LinkedIn Login', '#' %></li>
-        <li class="googlePlus btn-social"><%= link_to 'Google+ Login', '#' %></li> 
+        <li class="facebook btn-social"><%= link_to '', '#' %></li>
+        <li class="twitter btn-social"><%= link_to '', '#' %></li>
+        <li class="linkedin btn-social"><%= link_to '', '#' %></li>
+        <li class="googlePlus btn-social"><%= link_to '', '#' %></li> 
       </ul>
 
     </div>
     <div class="col-md-4">
-      <h2>Log in</h2>
+      <h4 class="signIn">Login with Email</h4>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
         </div>
 
         <div class="form-group">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
         </div>
 
         <% if devise_mapping.rememberable? -%>

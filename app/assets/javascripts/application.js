@@ -11,9 +11,22 @@
 // about supported directives.
 //
 //= require jquery
+// require turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+jQuery(function(){
+  	$('#disclaimBtn').click(function(){
+	  $('#disclaimer').slideToggle(500);
+	});
+
+	$('.flash:visible').delay(2500).slideUp();
+
+	$('.userName').click(function(){
+	  $('.underName').slideToggle(500);
+	  $('.userName').css("border-radius", "5px 5px 0 0");
+	});
+});
+/*
 $(document).ready(function(){
 	$('#disclaimBtn').click(function(){
 		$('#disclaimer').slideToggle(500);
@@ -24,6 +37,8 @@ $(function(){
 });
 $(document).ready(function(){
 	$('.userName').click(function(){
-		$('.underName').slideToggle(500);
+	  $('.underName').slideToggle(500);
+	  $('.userName').css("border-radius", "5px 5px 0 0");
 	});
 });
+*/

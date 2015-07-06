@@ -11,7 +11,7 @@
 <body>
 <div id="wrapper">
     <header>
-      <div class="logoMain"><h3><span class="logoBlue">Apartment</span><span class="logoGreen">Funder</span></h3></div>
+      <div class="logoMain"><img src="https://s3.amazonaws.com/apartmentfunder-development/images/headerLogoModCenterHigh.jpg" height="100"/></div>
         <ul class="leftNav navLinks">
           <li><%= link_to 'About Us', root_path %></li>
           <li><a href='#'>Listings</a></li>
@@ -22,12 +22,13 @@
         <% if current_user %>
           <li class="userName"><%= current_user.name %> </li>
           <ul class='underName'>
+          <li><%= link_to 'Investments', '#' %></li>
           <li><%= link_to 'Account', edit_user_registration_path %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Log In", new_user_session_path %></li> 
+          <li class="login"><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li class="login"><%= link_to "Log In", new_user_session_path %></li> 
         <% end %>
         </ul>
     </header>
