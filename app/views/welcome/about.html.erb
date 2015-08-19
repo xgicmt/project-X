@@ -1,4 +1,7 @@
-<h1>About Apartment Funder</h1>
-<p>Apartment Funder is your professional portal for mulit-family real-estate investment opportunities in the United States.</p>
-<p>We hope to help complete deal quicker, grow a community of like minded investors, and cerate a secure area for sponsors and investors to share private investment information.</p>
-
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<h2>Welcome, <%= current_user.name %>, to Apartment Funder</h2>
+ <%= link_to("Available Properties", properties_path) %>
+</div>
+</div>

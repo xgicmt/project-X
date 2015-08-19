@@ -1,0 +1,85 @@
+<h1>Edit Property</h1>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+  	<%= form_for @prop do |f| %>
+      <p>
+        <%= f.label :name %>
+	    <%= f.text_field :name, class: 'form-control', required: true %>
+      </p>
+      <p>
+        <%= f.label :purchase_price %>
+        <%= f.text_field :purchase_price, class: 'form-control', required: true%>
+      </p>
+      <p>
+        <%= f.label :min_investment %>
+        <%= f.text_field :min_investment, class: 'form-control', required: true%>
+      </p>
+      <p>
+        <%= f.label :targeted_irr %>
+        <%= f.text_field :targeted_irr, class: 'form-control', required: true %>
+      </p>
+      <p>
+        <%= f.label :targeted_yield %>
+        <%= f.text_field :targeted_yield, class: 'form-control', required: true %>
+      </p>      
+      <p>
+        <%= f.label :targeted_hold_period %>
+        <%= f.text_field :targeted_hold_period, class: 'form-control', required: true %>
+      </p> 
+      <p>Address</p>
+      <p>
+        <%= f.label "Street" %>
+        <%= f.text_field :address_street, class: 'form-control', required: true %>
+      </p>
+      <p>
+        <%= f.label "City" %>
+        <%= f.text_field :address_city, class: 'form-control', required: true %>
+      </p>
+      <p>
+        <%= f.label "State" %>
+        <%= f.text_field :address_state, class: 'form-control', required: true %>
+      </p>
+      <p>
+        <%= f.label "Zipcode" %>
+        <%= f.text_field :address_zipcode, class: 'form-control', required: true %>
+      </p>
+
+      <p>
+        <%= f.label :overview %>
+        <%= f.text_area :overview, rows: 8, cols: 45, class: 'form-control markdown-toolbar'%>
+      </p>
+      <div class="miscBox">
+      <p>Miscellaneous Fields<br>
+        <%= f.fields_for :extras, @prop.extras.build do |q| %>
+            <p>
+              <%= q.label "Title" %>
+              <%= q.text_field :title, class: 'form-control' %>
+            </p>
+            <p>
+              <%= q.label "Miscellaneous Message" %>
+              <%= q.text_area :body, rows: 8, cols: 45, class: 'form-control markdown-toolbar'%>
+            </p>
+        <% end %>
+      </p>
+      </div>
+        <% if @prop.propimages.count < 20 %>
+          <p>Upload Images<br>
+          <%= f.fields_for :propimages, @prop.propimages.build do |p| %>
+            <div class="field">
+              <%= p.file_field "images[]", type: :file, :multiple => true, name: "propimages[images][]", id: '' %>
+            </div>
+          <% end %>
+        <% end %>
+      </p>
+    
+
+
+      <p>
+      <%= f.submit "Edit Property Changes", class: 'btn btn-success' %>
+      </p>
+    <% end %>
+  </div>
+
+</div>

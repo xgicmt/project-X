@@ -14,13 +14,14 @@
       <div class="logoMain"><img src="https://s3.amazonaws.com/apartmentfunder-development/images/headerLogoModCenterHigh.jpg" height="100"/></div>
         <ul class="leftNav navLinks">
           <li><%= link_to 'About Us', root_path %></li>
-          <li><a href='#'>Listings</a></li>
-          <li><a href='#'>Sponsors</a></li>
+          <li><%= link_to 'Listings', properties_path %></li>
+          <li><%= link_to 'Sponsors', sponsors_info_path %></li>
           <li><a href="#">Contact</a></li>
         </ul>
         <ul class="rightNav">
         <% if current_user %>
-          <li class="userName"><%= current_user.name %> </li>
+          <li class="userName">
+            <%= current_user.name != nil ? current_user.name : current_user.email %> </li>
           <ul class='underName'>
           <li><%= link_to 'Investments', '#' %></li>
           <li><%= link_to 'Account', edit_user_registration_path %></li>
@@ -37,7 +38,7 @@
       <% if flash[:notice] %>
         <div class="alert alert-success"><%= notice %></div>
       <% elsif flash[:alert] %>
-        <div class="alert alert-danger"><%= notice %></div>
+        <div class="alert alert-danger"><%= alert %></div>
       <% end %>
     </div>
 

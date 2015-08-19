@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706152553) do
+ActiveRecord::Schema.define(version: 20150812165839) do
+
+  create_table "authorizations", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.integer  "property_id"
+    t.string   "file"
+    t.string   "filename"
+    t.string   "category"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "documents", ["property_id"], name: "index_documents_on_property_id"
+
+  create_table "extras", force: :cascade do |t|
+    t.integer  "property_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "extras", ["property_id"], name: "index_extras_on_property_id"
 
   create_table "leadership_team_members", force: :cascade do |t|
     t.string   "name"
@@ -19,7 +51,10 @@ ActiveRecord::Schema.define(version: 20150706152553) do
     t.text     "synopsis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "sponsor_id"
   end
+
+  add_index "leadership_team_members", ["sponsor_id"], name: "index_leadership_team_members_on_sponsor_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -35,7 +70,19 @@ ActiveRecord::Schema.define(version: 20150706152553) do
     t.string   "address_city"
     t.string   "address_state"
     t.string   "address_zipcode"
+    t.integer  "sponsor_id"
   end
+
+  add_index "properties", ["sponsor_id"], name: "index_properties_on_sponsor_id"
+
+  create_table "propimages", force: :cascade do |t|
+    t.integer  "property_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image_name"
+  end
+
+  add_index "propimages", ["property_id"], name: "index_propimages_on_property_id"
 
   create_table "sponsors", force: :cascade do |t|
     t.datetime "created_at",      null: false
@@ -48,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150706152553) do
     t.string   "address_state"
     t.string   "address_zipcode"
     t.string   "phone_number"
+    t.string   "website"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,6 +118,8 @@ ActiveRecord::Schema.define(version: 20150706152553) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,18 +1,25 @@
 Rails.application.routes.draw do
 
+
   get 'welcome/index'
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  #  resources :users, only: [:update]
+  #}
+  devise_for 
     resources :users, only: [:update]
-    
   get 'welcome/about'
-
   get 'welcome/legal'
+  get 'sponsors/info'
+  resources :properties 
+  resources :propimages
+  
 
-  resources :properties
+  resources :sponsors
+  resources :leadership_team_members
   
   authenticated :user do
-    root to: 'welcome#about', as: :authenticated_root
+    root to: 'properties#index', as: :authenticated_root
   end
 
   root to: 'welcome#index'
