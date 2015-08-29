@@ -1,18 +1,11 @@
   <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-4"></div>
+    <div class="col-md-4 col-sm-4 registration">
         <h4 class="signIn">Login With Social Media</h4>
       <ul class="socialLogins">
-        <li class="facebook btn-social">
-          <a href="localhost:3000/users/auth/facebook"><div class="social-link" style="width:100%; height:100%; z-index:99;"></div></a>
-        </li>
-        <li class="twitter btn-social"><%= link_to '', '#' %></li>
-        <li class="linkedin btn-social"><%= link_to '', '#' %></li>
-        <li class="googlePlus btn-social"><%= link_to '', '#' %></li> 
+        <a href="auth/facebook"><li class="facebook btn-social"></li></a>
+        <a href="auth/linkedin"><li class="linkedin btn-social"></li></a>
       </ul>
-
-    </div>
-    <div class="col-md-4">
       <h4 class="signIn">Login with Email</h4>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
@@ -33,7 +26,7 @@
           <% end -%>
 
         <div class="form-group">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Log in", class: 'btn btn-success'%>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>

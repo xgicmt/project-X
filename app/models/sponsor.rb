@@ -1,5 +1,6 @@
 class Sponsor < ActiveRecord::Base
 	has_many :properties
+	belongs_to :User
 	mount_uploader :logo, LogoUploader
 
   def synopsis=(val)

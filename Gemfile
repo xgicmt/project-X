@@ -29,6 +29,8 @@ gem 'fog'
 gem 'redcarpet'
 gem 'markdown-toolbar', '~> 1.0'
 
+gem 'stripe'
+
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'

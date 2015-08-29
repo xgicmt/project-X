@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-2"></div>
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-4">
     <h2>Profile Picture</h2>
     <% if current_user.avatar? %>
       <img src="<%= current_user.avatar.profile.url %>" />
@@ -8,7 +8,7 @@
       <img src="https://s3.amazonaws.com/apartmentfunder-development/images/Portrait_placeholder.png" width="200" />
   <% end %>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4 col-sm-4">
   <h2>Edit User</h2>
     <%= form_for(current_user) do |f| %>
     <div class="form-group">

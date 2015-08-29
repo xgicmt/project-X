@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812165839) do
+ActiveRecord::Schema.define(version: 20150819185104) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -96,7 +96,10 @@ ActiveRecord::Schema.define(version: 20150812165839) do
     t.string   "address_zipcode"
     t.string   "phone_number"
     t.string   "website"
+    t.integer  "user_id"
   end
+
+  add_index "sponsors", ["user_id"], name: "index_sponsors_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -120,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150812165839) do
     t.string   "avatar"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "sponsor_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,16 +1,11 @@
 <div class="row">
-  <div class="col-md-2"></div>
-    <div class="col-md-4">
+  <div class="col-md-4 col-sm-4"></div>
+  <div class="col-md-4 col-sm-4 registration">
     <h4 class="signIn">Sign Up Using Social Media</h4>
       <ul class="socialLogins">
-        <li class="facebook btn-social"><%= link_to '', '#' %></li>
-        <li class="twitter btn-social"><%= link_to '', '#' %></li>
-        <li class="linkedin btn-social"><%= link_to '', '#' %></li>
-        <li class="googlePlus btn-social"><%= link_to '', '#' %></li> 
+        <a href="auth/facebook"><li class="facebook btn-social"></li></a>
+        <a href="auth/linkedin"><li class="linkedin btn-social"></li></a>
       </ul>
-
-    </div>
-  <div class="col-md-4">
   <h4 class="signIn">Sign Up with an Email Address</h4>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>

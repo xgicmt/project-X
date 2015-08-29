@@ -22,7 +22,7 @@ jQuery(function(){
 	  $('#disclaimer').slideToggle(500);
 	});
 
-	//$('.flash:visible').delay(2500).slideUp();
+	$('.flash:visible').delay(5000).slideUp();
 
 	$('.userName').click(function(){
 	  $('.underName').slideToggle(500);
