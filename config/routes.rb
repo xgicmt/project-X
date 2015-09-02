@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   devise_for 
-    resources :users, only: [:update]
+    resources :users
   
   get 'welcome/index'
   get 'welcome/about'

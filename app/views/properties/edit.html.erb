@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-2"></div>
+  <div class="col-md-2 col-sm-2"></div>
   <div class="col-md-4 col-sm-4 editPages">
   	<%= form_for @prop do |f| %>
     <h3>Edit Property</h3>
@@ -9,11 +9,11 @@
       </p>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-6">
         <%= f.label :purchase_price %>
         <%= f.text_field :purchase_price, class: 'form-control', required: true%>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-6">
         <%= f.label :min_investment %>
         <%= f.text_field :min_investment, class: 'form-control', required: true%>
       </div>
@@ -21,11 +21,11 @@
 
     <div class="row">
       <h3>Targets </h3>
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-6">
           <%= f.label :targeted_irr %>
           <%= f.text_field :targeted_irr, class: 'form-control', required: true %>
       </div>  
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-6">
         <p>
           <%= f.label :targeted_yield %>
           <%= f.text_field :targeted_yield, class: 'form-control', required: true %> 
@@ -34,7 +34,7 @@
     </div> 
 
     <div class="row">  
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-6">
       <p>    
         <%= f.label "Hold Period (in Months)" %>
         <%= f.text_field :targeted_hold_period, class: 'form-control', required: true %>
@@ -43,26 +43,26 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 col-sm-12">
         <h3>Property Address</h3>
         <p>
           <%= f.label "Street" %>
           <%= f.text_field :address_street, class: 'form-control', required: true %>
         </p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-6">
         <p>
           <%= f.label "City" %>
           <%= f.text_field :address_city, class: 'form-control', required: true %>
         </p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-sm-3">
         <p>
           <%= f.label "State" %>
           <%= f.text_field :address_state, class: 'form-control', required: true %>
         </p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-sm-3">
         <p>
           <%= f.label "Zipcode" %>
           <%= f.text_field :address_zipcode, class: 'form-control', required: true %>
@@ -71,7 +71,7 @@
     </div>
     
     <h3>Overview</h3>
-      <%= f.text_area :overview, rows: 8, cols: 45, class: 'form-control markdown-toolbar'%>
+      <%= f.text_area :overview, rows: 8, cols: 40, class: 'form-control markdown-toolbar'%>
 
     <% if @prop.extras.present? %>
       <h2>Miscellaneous Field</h2>
@@ -81,7 +81,7 @@
           <%= extra.text_field :title, class: 'form-control' %>
         </p>
         <%= extra.label :body %>
-        <%= extra.text_area :body, rows: 8, cols: 45, class: 'form-control markdown-toolbar' %>
+        <%= extra.text_area :body, rows: 8, cols: 40, class: 'form-control markdown-toolbar' %>
         <%= extra.check_box :_destroy %>
         <%= extra.label :_destroy, 'Remove Field' %>
         <hr>
@@ -114,7 +114,7 @@
 
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-4 col-sm-4 editPages spacedLeft">
     <h3>Property Images</h3>
     <% if @prop.propimages %>
       <%= f.fields_for :propimages do |images| %>
@@ -129,8 +129,8 @@
 
 </div>
 <div class="row">
- <div class="col-md-2"></div>
- <div class="col-md-4 col-sm-4">
+ <div class="col-md-2 col-sm-2"></div>
+ <div class="col-md-4 col-sm-4 editPages">
       <p>
       <%= f.submit "Edit Property Changes", class: 'btn btn-success' %>
       <%= link_to "Delete Property", @prop, method: :delete, data: {confirm: "Are you sure you wish to delete this property?"}, class: 'deleteBtn btn btn-danger' %>
