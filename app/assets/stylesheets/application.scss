@@ -32,6 +32,7 @@ header{
 	padding-bottom:300px;
   background: no-repeat center center fixed url('https://s3.amazonaws.com/apartmentfunder-development/images/apartmentWide.jpg');
   background-size: cover;
+  min-height:900px;
 }
 
 .logoMain{
@@ -485,4 +486,13 @@ footer .col-md-2 {
 .mobileFooter a {
   padding: 0 10px;
 }
-
+.fullBackground{
+  margin-top: 50px;
+  padding: 25px;
+  background: rgba(4, 36, 77, 0.6);
+  border-radius: 10px;
+  box-shadow: 5px 5px 25px 1px rgba(255, 255, 255, 0.3);
+  border: 2px solid #ccc;
+  color: white;
+  text-shadow: 1px 1px 25px #000;
+}
